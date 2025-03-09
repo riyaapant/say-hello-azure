@@ -15,7 +15,13 @@ users_collection = db["users"]
 
 app = FastAPI()
 
+
 @app.get("/")
+def say_hello():
+    return {"message": "Hello world!"}
+
+
+@app.get("/users")
 def get_users():
     users = list(users_collection.find({},{"_id":0}))
     return {"users": users}
