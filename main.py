@@ -1,16 +1,16 @@
 from fastapi import FastAPI
-from pymongo import MongoClient
-from bson import ObjectId
-from dotenv import load_dotenv
-import os
+#from pymongo import MongoClient
+#from bson import ObjectId
+#from dotenv import load_dotenv
+#import os
 
-load_dotenv()
+#load_dotenv()
 
-MONGO_URI = os.getenv("MONGO_URI")
-client = MongoClient(MONGO_URI)
-db = client["azuredb"]
-print(db)
-users_collection = db["users"]
+#MONGO_URI = os.getenv("MONGO_URI")
+#client = MongoClient(MONGO_URI)
+#db = client["azuredb"]
+#print(db)
+#users_collection = db["users"]
 
 
 app = FastAPI()
@@ -21,8 +21,8 @@ def say_hello():
     return {"message": "Hello world!"}
 
 
-@app.get("/users")
-def get_users():
-    users = list(users_collection.find({},{"_id":0}))
-    return {"users": users}
+#@app.get("/users")
+#def get_users():
+#    users = list(users_collection.find({},{"_id":0}))
+#    return {"users": users}
 
